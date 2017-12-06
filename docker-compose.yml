@@ -1,0 +1,14 @@
+version: '3'
+services:
+  xmlint:
+    image: php:7-apache
+    ports:
+      - '80:80'
+    volumes:
+      - ./xmlint:/var/www/html
+    command: /bin/bash -c 'a2enmod rewrite; apache2-foreground'
+
+  xmlvalidator:
+    image: php:7-apache
+    volumes:
+      - ./xmlvalidator:/var/www/html
